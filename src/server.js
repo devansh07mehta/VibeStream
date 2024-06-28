@@ -1,4 +1,5 @@
 const winston = require('winston');
+const job = require('../cron');
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -28,6 +29,7 @@ const scannerApi = require('./api/scanner');
 const WebError = require('./util/web-error');
 const defaultjson = require('../save/conf/default.json')
 
+job.start();
 
 let mstream;
 let server;

@@ -81,6 +81,7 @@
     "busboy": "^1.6.0",
     "commander": "^9.5.0",
     "cookie-parser": "^1.4.6",
+    "cron": "^3.1.7",
     "dotenv": "^16.4.5",
     "electron-updater": "^6.1.4",
     "escape-string-regexp": "^4.0.0",
@@ -109,5 +110,4 @@
     "electron-builder": "24.6.4",
     "http-server": "^14.1.1"
   }
-  
 }
