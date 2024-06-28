@@ -2044,8 +2044,8 @@ function loadmusicTab() {
       <div class="upload-progress-bar">
           <div style="width:0%" id="upload-progress-inner1" class="upload-progress-inner"></div>
       </div>
-      <div id="filelist1" style="width:100%; margin:20px 0; display: flex; gap:150px">
-          <ul class="collection" style="width:50%">
+      <div id="filelist1">
+          <ul class="collection">
               <li class="collection-item">
                   <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
                       onclick="changeView(loadfirstiframe, this)">
@@ -2287,7 +2287,7 @@ function loadmusicTab() {
                   
               </li>
           </ul>
-          <ul class="collection" style="width:50%;">
+          <ul class="collection">
               <li class="collection-item">
                   <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
                       onclick="changeView(load13thiframe, this)">
@@ -2546,32 +2546,40 @@ function loadmusicTab() {
   document.getElementById('backbtn').style.display = 'none';
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'flex';
+  document.getElementById('newcontent').style.display = 'block';
   document.getElementById('newcontent').style.flexBasis = 'auto';
+  if (document.getElementById('newcontent').offsetWidth >= 600) {
+    document.getElementById('newcontent').style.overflowY = 'hidden';
+  }
+  else {
+    document.getElementById('newcontent').style.overflowY = 'scroll';
+    document.getElementById('newcontent').style.marginTop = '0px';
+  }
   document.getElementById('newcontent').innerHTML = musictab;
   document.getElementById('content').style.display = 'flex';
 }
 
-function loadinstruction() {
+function loadinstruction(event) {
   // window.location.href = 'instruction.html';
   const instruction = `
   
-  <h5 style ="padding: 15px; font-weight: 600">Steps for beginner:</h5>
-  <h5 style = "padding: 15px;">Hello and welcome to 'VibeStream'. At 'VibeStream', we offer a comprehensive approach to learning guitar, with step-by-step lessons that build from basic to foundational levels. Before you begin, it's important to have some basic knowledge. If you're completely new to guitar and have no prior experience, please follow these initial steps:
+  <h5 style ="padding: 15px; font-weight: 600" class="steps">Steps for beginner:</h5>
+  <h5 style = "padding: 15px;" class="intro">Hello and welcome to 'VibeStream'. At 'VibeStream', we offer a comprehensive approach to learning guitar, with step-by-step lessons that build from basic to foundational levels. Before you begin, it's important to have some basic knowledge. If you're completely new to guitar and have no prior experience, please follow these initial steps:
 </h6>
-<h6 style ="padding: 15px">1. Learn to Tune Your Guitar Using an App: Using a tuning app is an easy and effective way to ensure your guitar is in tune.
+<h6 style ="padding: 15px" class="points">1. Learn to Tune Your Guitar Using an App: Using a tuning app is an easy and effective way to ensure your guitar is in tune.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/338d2XeGzww?si=NzKyAGZMTpONK2pN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding: 15px">2. How to Hold Your Guitar: Properly holding your guitar is crucial for comfort and ease of playing.</h6>
-<iframe style = "padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/dUpjh7CcY_0?si=DRQPjuzotP2Wen3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding: 15px">3. How to Hold a Plectrum: Knowing how to correctly hold a plectrum (pick) is important for effective strumming and picking.
+<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/338d2XeGzww?si=NzKyAGZMTpONK2pN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="iframe"></iframe>
+<h6 style="padding: 15px" class="points">2. How to Hold Your Guitar: Properly holding your guitar is crucial for comfort and ease of playing.</h6>
+<iframe style = "padding: 15px" width="700" height="400" class="iframe" src="https://www.youtube.com/embed/dUpjh7CcY_0?si=DRQPjuzotP2Wen3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 style="padding: 15px" class="points">3. How to Hold a Plectrum: Knowing how to correctly hold a plectrum (pick) is important for effective strumming and picking.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/OT29cTu67L4?si=T6xkPz_paavuTeiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding:15px">4. How to Read Tabs: Understanding how to read guitar tablature (tabs) will help you play a wide variety of songs.
+<iframe style="padding: 15px" class="iframe" width="700" height="400" src="https://www.youtube.com/embed/OT29cTu67L4?si=T6xkPz_paavuTeiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 style="padding:15px" class="points">4. How to Read Tabs: Understanding how to read guitar tablature (tabs) will help you play a wide variety of songs.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/pQC3JsbgaTw?si=ooBV7wj7DTLn02m7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h5 style = "padding: 15px;">Note - "Please remember that things won't come easily at first; you need to give consistent effort and be patient to learn things properly. If you don't understand online videos, it's highly recommended to find an offline teacher to clarify doubts. After gaining some prior knowledge from an offline teacher, you can come back to our platform, VibeStream, to learn and enjoy our Indian music arrangements on guitar, designed by experienced teachers. These structured lessons are meant to improve your guitar playing. Wishing you happy practice! All the best."</h6>
+<iframe style="padding: 15px" width="700" height="400" class="iframe" src="https://www.youtube.com/embed/pQC3JsbgaTw?si=ooBV7wj7DTLn02m7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h5 style = "padding: 15px;" class="note">Note - "Please remember that things won't come easily at first; you need to give consistent effort and be patient to learn things properly. If you don't understand online videos, it's highly recommended to find an offline teacher to clarify doubts. After gaining some prior knowledge from an offline teacher, you can come back to our platform, VibeStream, to learn and enjoy our Indian music arrangements on guitar, designed by experienced teachers. These structured lessons are meant to improve your guitar playing. Wishing you happy practice! All the best."</h6>
   `;
+
   document.getElementById('mstream-player').style.display = 'none';
   document.getElementById('filelist').style.display = 'none';
   document.getElementById('playlist').style.display = 'none';
@@ -2580,7 +2588,15 @@ function loadinstruction() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('newcontent').style.flexBasis = 'inherit';
+  if (document.getElementById('newcontent').offsetWidth >= 600) {
+    document.getElementById('newcontent').style.flexBasis = 'inherit';
+  }
+  else {
+    document.getElementById('newcontent').style.flexBasis = 'fit-content';
+    document.getElementById('newcontent').style.marginTop = '0px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'scroll';
+
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = instruction;
 }
@@ -2589,7 +2605,7 @@ function loadfirstiframe() {
   // window.location.href = 'abhinajao.html';
   const first_iframe = `
 
-  <iframe src="https://www.soundslice.com/slices/cHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+  <iframe src="https://www.soundslice.com/slices/cHWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2600,15 +2616,19 @@ function loadfirstiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = first_iframe;
 }
 
 function loadsecondiframe() {
   // window.location.href = 'abhinajao.html';
-  const first_iframe = `
+  const second_iframe = `
 
- <iframe src="https://www.soundslice.com/slices/hdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/hdWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
 
   `;
@@ -2620,15 +2640,19 @@ function loadsecondiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = first_iframe;
+  document.getElementById('newcontent').innerHTML = second_iframe;
 }
 
 function loadthirdiframe() {
   // window.location.href = 'abhinajao.html';
-  const first_iframe = `
+  const third_iframe = `
 
- <iframe src="https://www.soundslice.com/slices/xdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/xdWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
 
   `;
@@ -2640,15 +2664,19 @@ function loadthirdiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = first_iframe;
+  document.getElementById('newcontent').innerHTML = third_iframe;
 }
 
 function loadfourthiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const fourth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/DJWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/DJWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2659,15 +2687,19 @@ function loadfourthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = fourth_iframe;
 }
 
 function loadfifthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const fifth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/nHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/nHWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2678,15 +2710,19 @@ function loadfifthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = fifth_iframe;
 }
 
 function loadsixthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const sixth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/s7Wzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/s7Wzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2697,15 +2733,19 @@ function loadsixthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = sixth_iframe;
 }
 
 function loadseventhiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const seventh_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/trWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/trWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2716,15 +2756,19 @@ function loadseventhiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = seventh_iframe;
 }
 
 function loadeightiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const eight_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/prWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/prWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2735,15 +2779,19 @@ function loadeightiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = eight_iframe;
 }
 
 function loadninthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const ninth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/RhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/RhWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2754,15 +2802,19 @@ function loadninthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = ninth_iframe;
 }
 
 function loadtenthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const tenth_iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/xqWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/xqWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2773,15 +2825,19 @@ function loadtenthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = tenth_iframe;
 }
 
 function loadeleventhiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const eleventh_iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/WhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/WhWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2792,15 +2848,19 @@ function loadeleventhiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = eleventh_iframe;
 }
 
 function loadtwelvthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const twelth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/hhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/hhWzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2811,15 +2871,19 @@ function loadtwelvthiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById('newcontent').innerHTML = twelth_iframe;
 }
 
 function load13thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/zMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/zMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
   `;
   document.getElementById('mstream-player').style.display = 'none';
   document.getElementById('filelist').style.display = 'none';
@@ -2829,6 +2893,10 @@ function load13thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2837,7 +2905,7 @@ function load14thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/WMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/WMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2848,6 +2916,10 @@ function load14thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2856,7 +2928,7 @@ function load15thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/PMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/PMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2867,6 +2939,10 @@ function load15thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2875,7 +2951,7 @@ function load16thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-  <iframe src="https://www.soundslice.com/slices/xMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+  <iframe src="https://www.soundslice.com/slices/xMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2886,6 +2962,10 @@ function load16thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2894,7 +2974,7 @@ function load17thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/gMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/gMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2905,6 +2985,10 @@ function load17thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2913,7 +2997,7 @@ function load18thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/pMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/pMjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2924,6 +3008,10 @@ function load18thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2932,7 +3020,7 @@ function load19thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/fkjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/fkjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2943,6 +3031,10 @@ function load19thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2951,7 +3043,7 @@ function load20thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/ykjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/ykjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2962,6 +3054,10 @@ function load20thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2970,7 +3066,7 @@ function load21stiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/2kjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/2kjzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -2981,6 +3077,10 @@ function load21stiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -2989,7 +3089,7 @@ function load22ndiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-<iframe src="https://www.soundslice.com/slices/t4jzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+<iframe src="https://www.soundslice.com/slices/t4jzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -3000,6 +3100,10 @@ function load22ndiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = iframe;
 }
@@ -3007,7 +3111,7 @@ function load22ndiframe() {
 function load23rdiframe() {
   const twentythirdiframe = `
 
-    <iframe src="https://www.soundslice.com/slices/k6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/k6Lzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -3018,6 +3122,10 @@ function load23rdiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = twentythirdiframe;
 }
@@ -3025,7 +3133,7 @@ function load23rdiframe() {
 function load24thiframe() {
   const twentyfourthiframe = `
 
-    <iframe src="https://www.soundslice.com/slices/j6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/j6Lzc/embed/" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
 
   `;
   document.getElementById('mstream-player').style.display = 'none';
@@ -3036,6 +3144,10 @@ function load24thiframe() {
   document.getElementById('local_search_btn').style.display = 'none';
   document.getElementById('add_all').style.display = 'none';
   document.getElementById('newcontent').style.display = 'block';
+  if (document.getElementById('newcontent').offsetWidth < 600) {
+    document.getElementById('newcontent').style.marginTop = '30px';
+  }
+  document.getElementById('newcontent').style.overflowY = 'hidden';
   document.getElementById('content').style.display = 'none';
   document.getElementById('newcontent').innerHTML = twentyfourthiframe;
 }

@@ -100,10 +100,12 @@
   <header class="site-header-2021 " id="site-header">
     <nav class="navigation">
       <a class="navigation__logo navigation__logo-simpleNavigation" href="/home">
-        <div class="d-flex">
-          <img src="assets/images/Vibestream-txt-logo.png" alt="VibeStream Logo" class="extendedLogo" width="300">
-        </div>
+
+        <img src="assets/images/Vibestream-txt-logo.png" alt="VibeStream Logo" class="extendedLogo" width="250">
+
       </a>
+
+
 
       <div class="navigation__menu">
         <div class="navigation__simpleNavigationSlot">
@@ -113,7 +115,7 @@
 
       <button id="button_header"
         data-tracking='{"position":"navbar","name":"let_s-get-started","label":"Let_s get started","context":"","section_id":"header","page_hash":"1f40adb551a6439e1edf804f3082f99d"}'
-        data-hide-if-logged-in class="button -medium -filled -dark -endIcon navigation__cta " type="button"
+        data-hide-if-logged-in class="loginbutton button -medium -filled -dark -endIcon navigation__cta " type="button"
         data-bs-target="#loginModal" data-bs-toggle="modal">
         Let's get started
 
@@ -122,16 +124,40 @@
           <path d="M18 12L7.47368 22.5L6 21.03L15.0526 12L6 2.97L7.47368 1.5L18 12Z" fill="#fff" />
         </svg>
       </button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="hidden" onclick="menuClick()"
+        viewBox=" 0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+      </svg>
+
 
 
     </nav>
+
+
+    <div id="myLinks">
+
+      <a type="button" class="button -large -filled -light -endIcon " data-bs-target="#loginModal"
+        data-bs-toggle="modal">
+        Let's Get
+        Started
+
+        <svg aria-hidden="true" focusable="false" width=16px height=16px viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 12L7.47368 22.5L6 21.03L15.0526 12L6 2.97L7.47368 1.5L18 12Z" fill="" />
+        </svg>
+      </a>
+    </div>
   </header>
+
+
+
 
 
 
   <!-- Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered d-flex">
+    <div class="modal-dialog modal-dialog-centered d-flex">
       <div class="modal-content w-90">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel1">Sign In</h5>

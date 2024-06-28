@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .d-none {
     display: none;
 }
@@ -573,7 +577,7 @@ a {
 }
 
 .button {
-    display: inline-flex !important;
+    display: inline-flex;
     flex-wrap: nowrap;
     min-width: fit-content;
     border-radius: 60px;
@@ -857,7 +861,7 @@ a {
 }
 
 .button.-medium {
-    font-size: 14px;
+    /* font-size: 14px; */
     height: 40px;
     padding: 10px 24px
 }
@@ -3545,7 +3549,7 @@ a:hover {
     }
 
     .section_mb_2.-withPhone .heroImage__main {
-        margin-bottom: min(2.5rem + var(--phoneMaxWidth)*.5, 365px)
+        margin-bottom: 17%;
     }
 
     .section_mb_0.-withPhone .heroImage__main {
@@ -6875,4 +6879,79 @@ p>button:hover {
 
 .searchPage .pagination .page-item.active a:hover {
     color: #1b1c1e
+}
+
+#myLinks {
+    display: none;
+}
+
+.modal-open {
+    overflow: hidden;
+    padding-right: 0px;
+}
+
+@media screen and (min-width: 600px) {
+    #myLinks {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .site-header-2021 .navigation {
+        /* justify-content: space-evenly; */
+        padding: 0 1rem;
+    }
+
+    .navigation__logo {
+        height: 100%;
+    }
+
+    .navigation__logo .d-flex {
+        height: 100%;
+    }
+
+    .extendedLogo {
+        width: 50%;
+        height: 85%;
+    }
+
+    .loginbutton {
+        display: none;
+    }
+
+    .hidden {
+        display: flex;
+        width: 7%;
+        fill: #e7374c;
+    }
+
+    #myLinks {
+        width: 100%;
+        background-color: #e7374c;
+    }
+
+    #myLinks>.button {
+        width: 100%;
+    }
+
+    body {
+        /* overflow: hidden !important; */
+        padding-right: 0px !important;
+        /* padding: 0px !important; */
+    }
+
+    .modal-dialog-centered {
+        display: flex;
+        align-items: start;
+        top: 250px;
+        justify-content: center;
+    }
+
+    .heroImage__colorBackdrop {
+        height: 100%;
+    }
+
+    .section_mb_7 {
+        margin-bottom: 15%;
+    }
 }

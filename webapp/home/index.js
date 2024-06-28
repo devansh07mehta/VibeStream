@@ -274,4 +274,19 @@ function password_show_hide_reset() {
   }
 }
 
+function menuClick() {
+  var x = document.getElementById("myLinks");
 
+  if (x.style.display === "none") {
+    x.style.display = "inline-block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+const mediaQuery = '(max-width: 600px)';
+const mediaQueryList = window.matchMedia(mediaQuery);
+
+if (!mediaQueryList.matches) {
+  document.getElementById("myLinks").style.display = "none"
+}

@@ -104,6 +104,7 @@ body {
   flex-grow: 1;
   /* do not grow   - initial value: 0 */
   flex-shrink: 0;
+  flex-basis: inherit;
 
 }
 
@@ -1110,4 +1111,58 @@ select {
 
 .make-white {
   color: #FFF;
+}
+
+#filelist1 {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  gap: 150px;
+}
+
+#filelist1>.collection {
+  width: 50%;
+}
+
+@media screen and (max-width: 770px) {
+
+  #newcontent {
+    flex-basis: fit-content !important;
+  }
+
+  .steps {
+    width: 100%;
+  }
+
+  .intro {
+    width: 100%;
+  }
+
+  .points {
+    width: 100%;
+  }
+
+  .iframe {
+    width: 100%;
+  }
+
+  .note {
+    width: 100%;
+  }
+
+  #filelist1 {
+    display: block;
+    overflow-y: scroll;
+    margin-left: 20px;
+  }
+
+  #filelist1>.collection {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 358px) {
+    .item-text {
+      text-overflow: ellipsis;
+    }
+  }
 }
