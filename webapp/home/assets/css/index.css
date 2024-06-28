@@ -2511,7 +2511,11 @@ a:hover {
     margin-bottom: 0rem
 }
 
-.section_mb_2 {
+/* .section_mb_2 {
+    margin-bottom: 2.5rem
+} */
+
+.section_mb_2dot5 {
     margin-bottom: 2.5rem
 }
 
@@ -6944,7 +6948,6 @@ p>button:hover {
         display: flex;
         align-items: start;
         top: 195px;
-        justify-content: center;
     }
 
     .heroImage__colorBackdrop {
