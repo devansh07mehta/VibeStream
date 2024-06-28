@@ -6943,7 +6943,7 @@ p>button:hover {
     .modal-dialog-centered {
         display: flex;
         align-items: start;
-        top: 250px;
+        top: 195px;
         justify-content: center;
     }
 
