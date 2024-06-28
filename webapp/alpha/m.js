@@ -2556,7 +2556,7 @@ function loadmusicTab() {
     document.getElementById('newcontent').style.marginTop = '0px';
   }
   document.getElementById('newcontent').innerHTML = musictab;
-  document.getElementById('content').style.display = 'flex';
+  document.getElementById('content').style.display = 'none';
 }
 
 function loadinstruction(event) {
